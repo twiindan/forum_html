@@ -1,6 +1,6 @@
 __author__ = 'arobres'
 
-from bottle import route, run, template, Bottle, request, response, auth_basic, redirect
+from bottle import run, template, Bottle, request, response, auth_basic, redirect, static_file
 from constants import THEME, SUBJECT, MESSAGES
 from collections import defaultdict
 import ujson
@@ -202,6 +202,7 @@ def check_forum_body(body):
     else:
         return True
 
+
 def create_body(name=None, username=None, pwd=None, role=None, email=None):
 
         body = {}
@@ -217,6 +218,16 @@ def create_body(name=None, username=None, pwd=None, role=None, email=None):
             body['email'] = email
 
         return body
+
+
+@app.route('/static/css/<filename>')
+def cssget(filename):
+    return static_file(filename, root="./static/css")
+
+
+@app.route('/static/fonts/<filename>')
+def fontsget(filename):
+    return static_file(filename, root="./static/fonts")
 
 
 run(app, host='0.0.0.0', port=8081, reloader=True)
