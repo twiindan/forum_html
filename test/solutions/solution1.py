@@ -59,7 +59,6 @@ header_columns = rows[0].find_elements_by_tag_name('th')
 
 #ASSERT THE HEADERS
 for x in range(1):
-    print header_columns[x].text
     assert_equals(header_columns[x].text, subject_data)
 
 #ASSERT THE ROWS
