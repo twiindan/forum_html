@@ -52,8 +52,7 @@ rows = user_table.find_elements_by_tag_name('tr')
 header_columns = rows[0].find_elements_by_tag_name('th')
 
 #ASSERT THE HEADERS
-for x in range(1):
-
+for x in range(len(header_columns)):
     assert_equals(header_columns[x].text, table_headers[x])
 
 #ASSERT THE ROWS
