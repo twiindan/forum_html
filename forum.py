@@ -27,13 +27,9 @@ def check_username(username, password):
 @app.get("/v1.0/")
 def im_alive():
 
-    if request.get_cookie("visited"):
-        output = template('welcome', first_time=True)
-        return output
-        return "Welcome back! Nice to see you again"
-    else:
-        response.set_cookie("visited", "yes")
-        return "Hello there! Nice to meet you"
+
+    output = template('welcome', first_time=True)
+    return output
 
 
 @app.post("/v1.0/users")

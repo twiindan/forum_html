@@ -1,6 +1,6 @@
 %#template to generate a HTML table from a list of tuples (or list of lists, or tuple of tuples or ...)
-<p>User List </p>
-<table border="1">
+<h1>User List </h1>
+<table border="1" id="user_table">
 <tr>
 %for col in rows[0].keys():
 
