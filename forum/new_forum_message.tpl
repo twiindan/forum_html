@@ -9,7 +9,5 @@
 </p>
 SUBJECT: <input type="text" size="100" maxlength="100" name="subject" id="subject"><br>
 MESSAGE: <input type="text" size="100" maxlength="100" name="message" id="message"><br>
-<input type="submit" name="save" value="save">
+<input type="submit" name="save" value="save" id="save">
 </form>
-
-

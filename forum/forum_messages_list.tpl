@@ -2,7 +2,7 @@
 %for themes, messages in rows.iteritems():
     <h1>{{themes}}</h1>
     %for message in messages:
-        <table border="1">
+        <table border="1" id="forum_table">
         %subject = message['subject']
         %text = message['message']
         <tr>
