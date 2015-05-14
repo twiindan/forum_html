@@ -3,12 +3,12 @@ from page_object import Homepage
 from nose.tools import assert_equals
 
 
-class createUserTest():
+class create_forum_message_test():
 
     def setUp(self):
         self.browser = webdriver.Firefox()
 
-    def create_user_test(self):
+    def create_forum_message_test(self):
 
         #Define the table data
         table_data = [u'First Message with Page Object', u"Yes! I'm using Page Objects!"]
