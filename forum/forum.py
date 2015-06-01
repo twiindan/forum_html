@@ -27,9 +27,16 @@ def check_username(username, password):
 @app.get("/v1.0/")
 def im_alive():
 
-
     output = template('welcome', first_time=True)
     return output
+
+
+@app.get("/v1.0/reset")
+@app.get("/v1.0/reset/")
+def reset_data():
+    del user_list[:]
+    user_messages_dict.clear()
+    forum_messages_dict.clear()
 
 
 @app.post("/v1.0/users")
