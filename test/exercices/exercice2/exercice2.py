@@ -4,14 +4,14 @@ from nose.tools import assert_equals
 import requests
 
 
-class create_user_test():
+class create_message_forum_test():
 
     def setUp(self):
         self.browser = webdriver.Firefox()
         requests.get('http://localhost:8081/v1.0/reset')
 
 
-    def create_user_test(self):
+    def create_message_forum_test(self):
 
         #Define the table data
         table_data = [u'First Message with Page Object', u"Yes! I'm using Page Objects!"]
