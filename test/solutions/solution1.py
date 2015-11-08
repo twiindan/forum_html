@@ -22,7 +22,7 @@ driver.get("http://localhost:8081/v1.0")
 
 #ASSERT THE MAIN PAGE IS OPENED
 header = driver.find_element_by_id('header_first_time')
-assert_equals(header.text, 'Welcome to ExpoQA Python Forum')
+assert_equals(header.text, 'Welcome to VLC Testing Python Forum')
 
 #LOCATE AND CLICK IN THE FIRST LINK USING FIND ELEMENT BY LINK TEXT (Create new forum message) ()
 new_user_link = driver.find_element_by_link_text('Create new forum message')

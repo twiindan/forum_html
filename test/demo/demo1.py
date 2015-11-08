@@ -7,7 +7,7 @@ from nose.tools import assert_equals
 
 
 #DEFINE DATA
-user_data = ['expoqa', 'expoqa', 'QA', 'expoqa', 'expoqa@expoqa.es', ]
+user_data = ['vlctesting', 'vlctesting', 'QA', 'vlctesting', 'vlctesting@vlctesting.es', ]
 table_headers = ['username', 'password', 'role', 'name', 'email']
 
 #INIT THE FIREFOX WEBDRIVER
@@ -21,7 +21,7 @@ driver.get("http://localhost:8081/v1.0")
 
 #ASSERT THE MAIN PAGE IS OPENED
 header = driver.find_element_by_id('header_first_time')
-assert_equals(header.text, 'Welcome to ExpoQA Python Forum')
+assert_equals(header.text, 'Welcome to VLC Testing Python Forum')
 
 #LOCATE AND CLICK IN THE FIRST LINK
 new_user_link = driver.find_element_by_link_text('Create a new user')
