@@ -4,6 +4,9 @@ __author__ = 'arobres'
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from nose.tools import assert_equals
+import requests
+
+requests.get('http://localhost:8081/v1.0/reset')
 
 
 #DEFINE DATA

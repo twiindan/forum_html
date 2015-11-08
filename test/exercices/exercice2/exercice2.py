@@ -1,12 +1,15 @@
 from selenium import webdriver
 from page_object import Homepage
 from nose.tools import assert_equals
+import requests
 
 
 class create_message_forum_test():
 
     def setUp(self):
         self.browser = webdriver.Firefox()
+        requests.get('http://localhost:8081/v1.0/reset')
+
 
     def create_message_forum_test(self):
 
