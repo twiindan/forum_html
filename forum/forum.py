@@ -1,10 +1,15 @@
 __author__ = 'arobres'
 
-from bottle import run, template, Bottle, request, response, auth_basic, redirect, static_file
+from bottle import run, template, Bottle, request, response, auth_basic, redirect, static_file, TEMPLATE_PATH
 from constants import THEME, SUBJECT, MESSAGES
 from collections import defaultdict
 import ujson
 from sys import argv
+import os
+
+TEMPLATE_PATH.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
+
+
 
 app = Bottle()
 user_list = []
@@ -22,6 +27,8 @@ def check_username(username, password):
             if user['password'] == password:
                 return True
     return False
+
+
 
 
 @app.get("/v1.0")
