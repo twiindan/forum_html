@@ -151,7 +151,7 @@ def publish_to_forum():
             response.status = 400
             return {"message": "some parameter is not correct"}
         if theme not in THEMES:
-            response.status = 400
+            response.status = 4010
             return {"message": "Theme not valid"}
         else:
             body = {THEME: theme, SUBJECT: subject, MESSAGES: message}
@@ -165,6 +165,14 @@ def publish_to_forum():
 def get_messages():
 
     theme_to_filter = request.query.getall('theme')
+    '''     if len(user_list) == 0:
+        return "No users created"
+    else:
+        output = template('user_list', rows=user_list)
+        return output
+    '''
+    if forum_messages_dict == 0:
+        return 'No forum messages'
 
     if len(theme_to_filter) == 0:
         output = template('forum_messages_list', rows=forum_messages_dict)
