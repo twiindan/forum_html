@@ -4,6 +4,7 @@ from bottle import run, template, Bottle, request, response, auth_basic, redirec
 from constants import THEME, SUBJECT, MESSAGES
 from collections import defaultdict
 import ujson
+from sys import argv
 
 app = Bottle()
 user_list = []
@@ -233,4 +234,4 @@ def fontsget(filename):
     return static_file(filename, root="./static/fonts")
 
 
-run(app, host='0.0.0.0', port=8081, reloader=True)
+run(app, host='0.0.0.0', port=argv[1], reloader=True)
