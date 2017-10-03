@@ -1,5 +1,6 @@
 <h1>Forum message List </h1>
-%for themes, messages in rows.iteritems():
+%print (rows)
+%for themes, messages in rows.items():
     <h1>{{themes}}</h1>
     %for message in messages:
         <table border="1" id="forum_table">
