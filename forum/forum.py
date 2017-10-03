@@ -165,13 +165,8 @@ def publish_to_forum():
 def get_messages():
 
     theme_to_filter = request.query.getall('theme')
-    '''     if len(user_list) == 0:
-        return "No users created"
-    else:
-        output = template('user_list', rows=user_list)
-        return output
-    '''
-    if forum_messages_dict == 0:
+
+    if len(forum_messages_dict) == 0:
         return 'No forum messages'
 
     if len(theme_to_filter) == 0:
