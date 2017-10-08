@@ -80,6 +80,7 @@ def list_users():
     if len(user_list) == 0:
         return "No users created"
     else:
+        print(user_list)
         output = template('user_list', rows=user_list)
         return output
 
@@ -109,15 +110,24 @@ def create_user_message(username):
 
 @app.get("/v1.0/users/inbox/<username>")
 @app.get("/v1.0/users/inbox/<username>/")
-@auth_basic(check_username)
 def get_user_messages(username):
 
-    receiver_list = user_messages_dict[username]
-    return {"username": username, "messages": receiver_list}
+    user_cookie = request.get_cookie("username")
+    if user_cookie is None:
+        redirect("/v1.0/login/")
+
+    if check_username(username, user_cookie[::-1]):
+
+        receiver_list = user_messages_dict[username]
+        return {"username": username, "messages": receiver_list}
+
+    else:
+        redirect("/v1.0/login/")
+
 
 @app.delete("/v1.0/users/inbox/<username>")
 @app.delete("/v1.0/users/inbox/<username>/")
-@auth_basic(check_username)
+
 def delete_messages_from_user(username):
 
     del(user_messages_dict[username])
@@ -151,7 +161,7 @@ def publish_to_forum():
             response.status = 400
             return {"message": "some parameter is not correct"}
         if theme not in THEMES:
-            response.status = 400
+            response.status = 4010
             return {"message": "Theme not valid"}
         else:
             body = {THEME: theme, SUBJECT: subject, MESSAGES: message}
@@ -166,6 +176,9 @@ def get_messages():
 
     theme_to_filter = request.query.getall('theme')
 
+    if len(forum_messages_dict) == 0:
+        return 'No forum messages'
+
     if len(theme_to_filter) == 0:
         output = template('forum_messages_list', rows=forum_messages_dict)
         return output
@@ -175,6 +188,40 @@ def get_messages():
         message_list = forum_messages_dict[theme_to_filter[0]]
         output = template('forum_messages_list', rows={theme_to_filter[0]: message_list})
         return output
+
+@app.get("/v1.0/login")
+@app.get("/v1.0/login/")
+def login_page():
+    return template('login.tpl')
+
+
+@app.get("/v1.0/demo")
+@app.get("/v1.0/demo/")
+def login_page():
+    return template('demoweb.tpl')
+
+
+
+@app.post("/v1.0/login")
+@app.post("/v1.0/login/")
+def user_login():
+
+    if request.POST.get('save', '').strip():
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password', '').strip()
+
+        if username == '' or password == '':
+            response.status = 400
+            return {"message": "some parameter is not correct"}
+
+        if not check_username(username, password):
+            response.status = 403
+            return {"message": "Invalid user or password"}
+
+        else:
+            response.set_cookie("username", username[::-1])
+            redirect('/v1.0/users/inbox/{}'.format(username))
+
 
 
 def find_user(username):
