@@ -195,6 +195,13 @@ def login_page():
     return template('login.tpl')
 
 
+@app.get("/v1.0/demo")
+@app.get("/v1.0/demo/")
+def login_page():
+    return template('demoweb.tpl')
+
+
+
 @app.post("/v1.0/login")
 @app.post("/v1.0/login/")
 def user_login():
