@@ -80,7 +80,7 @@ def create_user():
 def list_users():
     if len(user_list) == 0:
         sleep(10)
-        return "No users created"
+        return "<h1>User List </h1>"
     else:
         print(user_list)
         output = template('user_list', rows=user_list)
