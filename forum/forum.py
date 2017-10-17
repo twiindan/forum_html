@@ -6,6 +6,7 @@ from collections import defaultdict
 import ujson
 from sys import argv
 import os
+from time import sleep
 
 TEMPLATE_PATH.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
 
@@ -78,6 +79,7 @@ def create_user():
 @app.get("/v1.0/users/")
 def list_users():
     if len(user_list) == 0:
+        sleep(10)
         return "No users created"
     else:
         print(user_list)
