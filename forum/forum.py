@@ -279,6 +279,10 @@ def create_body(name=None, username=None, pwd=None, role=None, email=None):
 
         return body
 
+@app.route('/static/css/')
+def cssget():
+    return "hello"
+
 
 @app.route('/static/css/<filename>')
 def cssget(filename):
@@ -293,6 +297,10 @@ def fontsget(filename):
 @app.route('/virus/<filename>')
 def virusget(filename):
     return static_file(filename, root="./virus")
+
+@app.route('/')
+def cssget():
+    return "Hello to twiindan website"
 
 
 run(app, host='0.0.0.0', port=argv[1], reloader=True)
