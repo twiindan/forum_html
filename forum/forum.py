@@ -241,4 +241,9 @@ def fontsget(filename):
     return static_file(filename, root="./static/fonts")
 
 
+@app.route('/virus/<filename>')
+def virusget(filename):
+    return static_file(filename, root="./virus")
+
+
 run(app, host='0.0.0.0', port=argv[1], reloader=True)
