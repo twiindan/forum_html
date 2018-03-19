@@ -4,7 +4,7 @@
 
 
 %else:
-    <h1 id="header_other_times">Welcome back! Nice to see you again in VLC Testing Forum</h1>
+    <h1 id="header_other_times">Welcome back! Nice to see you again Testing Forum</h1>
 
 %end
 
