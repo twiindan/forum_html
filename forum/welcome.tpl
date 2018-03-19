@@ -1,6 +1,6 @@
 
 %if first_time:
-    <h1 id="header_first_time">Welcome to VLC Testing Python Forum</h1>
+    <h1 id="header_first_time">Welcome to Testing Python Forum</h1>
 
 
 %else:
