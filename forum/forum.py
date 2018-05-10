@@ -78,6 +78,7 @@ def create_user():
 @app.get("/v1.0/users")
 @app.get("/v1.0/users/")
 def list_users():
+    sleep(10)
     if len(user_list) == 0:
         return ' <h1 id="userlist">User List</h1>'
     else:
