@@ -290,8 +290,7 @@
 		<fieldset>
 			<legend>Radio Button Example</legend>
 			<label for="windows">
-			<input id="windowsradio" value="windows" name="so" type="radio"> Windows
-			</label>
+			<input id="windowsradio" value="windows" name="so" type="radio">Windows</label>
 			<label for="linux">
 			<input id="linuxradio" value="linux" name="so" type="radio"> Linux
 			</label>
@@ -339,13 +338,13 @@
 	<div class="left-align">
 		<fieldset>
 			<legend>Switch Window Example</legend>
-			<button id="openwindow" class="btn-style class1" onclick="openWindow()">Open Window</button>
+			<button id="openwindow" title="Open Window" class="btn-style class1" onclick="openWindow()">Open Window</button>
 		</fieldset>
 	</div>
 	<div class="cen-align">
 		<fieldset>
 			<legend>Switch Tab Example</legend>
-			<a id="opentab" class="btn-style class1 class2" href="http://softqatest.com/" target="_blank">Open Tab</a>
+			<a id="opentab" data-testid="OpenTab" class="btn-style class1 class2" href="http://softqatest.com/" target="_blank">Open Tab</a>
 		</fieldset>
 	</div>
 	<div class="right-align">
