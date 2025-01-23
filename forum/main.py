@@ -50,13 +50,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 templates = Jinja2Templates(directory=BASE_DIR)
 templates.env.file_extension = '.tpl'
 
-print("Directorio base:", BASE_DIR)
-print("Ruta de búsqueda de templates:", templates.env.loader.searchpath)
-
-print("Archivos en el directorio:")
-for file in os.listdir(BASE_DIR):
-    if file.endswith('.tpl'):
-        print(f"- {file}")
 
 # Configuración de archivos estáticos
 app.mount("/static", StaticFiles(directory="static"), name="static")
