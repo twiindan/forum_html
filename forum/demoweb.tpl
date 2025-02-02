@@ -350,7 +350,7 @@
 	<div class="right-align">
 		<fieldset>
 			<legend>Switch To Alert Example</legend>
-			<input id="name" name="enter-name" class="inputs" placeholder="Enter Your Name" type="text">
+			<input id="name" data-testingid="placeholder" name="enter-name" class="inputs" placeholder="Enter Your Name" type="text">
 			<input id="alertbtn" class="btn-style" value="Alert" onclick="displayAlert()" type="submit">
 			<input id="confirmbtn" class="btn-style" value="Confirm" onclick="displayConfirm()" type="submit">
 		</fieldset>
